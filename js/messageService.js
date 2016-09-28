@@ -23,7 +23,21 @@ angular.module('chatroom').service('messageService', function($http){
 
   //postMessage method here
 
+this.postMessage = function(newMessage) {
+  return $http({
+    method: "POST",
+    url: "http://practiceapi.devmounta.in/api/chats",
+    data: {message: newMessage}
+  });
+}
 
   //getMessages method here
+
+this.getMessages = function() {
+  return $http({
+    method: "GET",
+    url: "http://practiceapi.devmounta.in/api/chats"
+  })
+}
 
 });
